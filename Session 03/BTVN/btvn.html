@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let nickName = prompt("Nhập tên của bạn: ");
+        let role = prompt("Vai trò của bạn: ").toLowerCase();
+        let balance = +prompt("Số dư tài khoản: ");
+        let status = prompt("Trạng thái (True cho tài khoản còn hoạt động; còn lại là bị khóa): ");
+        let overdue = +prompt("Số ngày quá hạn trả sách: ");
+
+        let check = "";
+        switch (role) {
+            case "admin":
+                check = "Chào Admin, bạn có toàn quyền hệ thống";
+                break;
+            case "student":
+                check = "Chào sinh viên, bạn có thể mượn sách";
+                break;
+            case "guest":
+                check = "Chào khách, bạn chỉ có thể đọc tại chỗ";
+                break;
+            default:
+                check = "Lỗi: Vai trò không hợp lệ!";
+        }
+
+
+        // if ((nickName != "") && (role == "admin" || role == "student") && (balance > 0 && status == "true")) {
+        //     borrowCondition = "ĐƯỢC PHÉP MƯỢN SÁCH";
+        // } else {
+        //     borrowCondition = "YÊU CẦU BỊ TỪ CHỐI";
+        // }
+        let borrowCondition = "YÊU CẦU BỊ TỪ CHỐI";
+        let borrowCheck = true;
+        if (!nickName) {
+            borrowCondition += ", TÊN BỊ RỖNG";
+            borrowCheck = false;
+        }
+        if (role != "admin" && role != "student") {
+            borrowCondition += ", VAI TRÒ CHƯA ĐÚNG";
+            borrowCheck = false;
+        }
+        if (balance < 0 || status != "true") {
+            borrowCondition += ", TÀI KHOẢN = 0 HOẶC TRẠNG THÁI != TRUE";
+            borrowCheck = false;
+        }
+        if (borrowCheck) {
+            borrowCondition = "ĐƯỢC PHÉP MƯỢN SÁCH";
+        }
+
+        let overduePrice = 0;
+
+        if (overdue <= 0) {
+            console.log("Cảm ơn bạn đã trả đúng hạn");
+        } else if (overdue <= 5) {
+            //Tính ra bị phạt bao nhiêu
+            overduePrice = (5000 * overdue).toLocaleString("vi-VN")
+        } else if (overdue <= 10) {
+            //Tính ra bị phạt bao nhiêu
+            overduePrice = (10000 * overdue).toLocaleString("vi-VN")
+        } else {
+            //Tính ra bị phạt bao nhiêu
+            overduePrice = "200.000"
+        }
+
+        console.log(`
+        --- HỆ THỐNG MƯỢN TRẢ ---
+        Người dùng: ${nickName}
+        Quyền hạn: Chào ${role + " " + nickName}, bạn ${borrowCheck ? "có" : "không"} thể mượn sách
+        Kết quả mượn: ${borrowCondition}
+        Tình trạng trả sách: Quá hạn ${overdue} ngày
+        Tiền phạt: ${overduePrice} VNĐ
+        `);
+
+    </script>
+</body>
+
+</html>

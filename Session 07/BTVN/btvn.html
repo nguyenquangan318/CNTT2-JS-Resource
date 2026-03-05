@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let choice;
+        let books = [];
+        do {
+            choice = +prompt(`
+            1. Xem danh sách
+            2. Nhập sách mới
+            3. Mượn sách (Xóa)
+            4. Sửa tên sách
+            5. Sắp xếp kệ
+            0. Thoát`);
+            switch (choice) {
+                case 1:
+                    consol.log("Danh sách hiện tại: ");
+                    if (books.length === 0) {
+                        console.log("Danh sách hiện tại rỗng!");
+                    } else {
+                        for (let i = 0; i <= books.length; i++) {
+                            console.log(books[i]);
+                        }
+                    }
+                    break;
+                case 2:
+                    let newBook = prompt("Nhập tên sách mới");
+                    books = books.push(newBook);
+                    console.log("Thêm thành công!");
+                    break;
+                case 3:
+                    //Nhập tên sách
+                    let borrowBook = prompt("Nhập tên sách muốn mượn");
+                    //Kiểm tra có hay không
+                    let borrowIndex = books.indexOf(borrowBook);
+                    //Nếu không có thì in thông báo
+                    if (borrowIndex == -1) {
+                        console.log("Sách không tồn tại");
+                    } else {
+                        //Nếu có thì xóa đi
+                        books.splice(borrowIndex, 1);
+                        //In thông báo mượn thành công
+                        console.log("Đã cho mượn thành công");
+                    }
+                    break;
+                case 4:
+                    let oldBook = prompt("Nhập tên sách cần cập nhật");
+                    let oldIndex = books.indexOf(oldBook);
+                    if (oldIndex === -1) {
+                        console.log("Sách không tồn tại");
+                    } else {
+                        books[oldIndex] = prompt("Nhập tên sách mới");
+                        console.log("Sửa sách thành công");
+                    }
+                    break;
+                case 5:
+                    books.sort();
+                    console.log("Sắp xếp thành công");
+                    for (let i = 0; i <= books.length; i++) {
+                        console.log(books[i]);
+                    }
+                    break;
+                default:
+                    break;
+            }
+        } while (choice)
+    </script>
+</body>
+
+</html>

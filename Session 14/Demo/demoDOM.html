@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .submit-btn {
+            width: 30%;
+            margin-left: 30%;
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bg-blue {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Demo DOM</h1>
+    <form action="" class="form" id="form">
+        <div class="input-group">
+            <label for="name">Họ và tên</label>
+            <input type="text" name="" id="name">
+        </div>
+        <div class="input-group" style="display: none;">
+            <label for="age">Tuổi</label>
+            <input type="number" id="age">
+        </div>
+        <input type="submit" class="submit-btn">
+    </form>
+    <script>
+        //Truy cập phần tử html từ trong DOM
+        let form = document.getElementById("form");
+        let inputGroup = document.getElementsByClassName("input-group");
+        let labelGroup = document.getElementsByTagName("label");
+        // console.log(form);
+        // console.log(inputGroup[1]);
+
+        //Thuộc tính trong phần tử html
+        //Nội dung html bên trong phần tử
+        // console.log(form.innerHTML);
+        form.innerHTML += `<h3>Đây là nội dung mới bên trong thẻ form</h3>
+                            <button>Nút</button>`;
+        //Nội dung text bên trong phần tử
+        // console.log(form.textContent); //Lấy nội dung toàn bộ text
+        // console.log(form.innerText);   //Lấy nội dung text có thể nhìn thấy trên giao diện
+        console.log(form.id);
+        form.classList.add("bg-blue");
+        form.classList.remove("bg-blue");
+        form.classList.toggle("bg-blue");
+
+
+
+    </script>
+</body>
+
+</html>

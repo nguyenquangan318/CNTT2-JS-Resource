@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script>
+        //Tự tạo phần tử html
+        let headerElement = document.createElement("h1");
+        headerElement.innerText = "Đây là tiêu đề 1";
+        document.getElementById("container").appendChild(headerElement);
+        headerElement.setAttribute("id", "header-id"); // headerElement.id = "header-id"
+        console.log(headerElement.getAttribute("id")); // console.log(headerElement.id)
+
+    </script>
+</body>
+
+</html>

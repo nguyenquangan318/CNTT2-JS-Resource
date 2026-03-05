@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let student = {
+        //     id: 1,
+        //     studentName: "Dương"
+        // }
+
+        //READ
+        // console.log(student.studentName);
+        // let prop = "studentName";
+        // console.log(student[prop]);
+
+        //CREATE
+        // student.age = 18;
+        // console.log(student);
+
+        //UPDATE
+        // student.id = 5;
+        // console.log(student);
+
+        //DELETE
+        // delete student.studentName;
+        // console.log(student);
+
+        let id = +prompt("Nhập id");
+        let studentName = prompt("Nhập tên sinh viên");
+        let age = prompt("Nhập tuổi sinh viên");
+        let student = {
+            studentId: id, 
+            studentName, 
+            age
+        }
+        console.log(student);
+
+
+    </script>
+</body>
+
+</html>

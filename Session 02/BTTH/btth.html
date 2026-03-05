@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let nickName = prompt("Nhập tên của bạn: ");
+        let role = prompt("Vai trò của bạn: ").toLowerCase();
+        let balance = +prompt("Số dư tài khoản: ");
+        let status = prompt("Trạng thái (True cho tài khoản còn hoạt động; còn lại là bị khóa): ");
+        let overdue = +prompt("Số ngày quá hạn trả sách: ");
+
+        let check = "";
+        switch (role) {
+            case "admin":
+                check = "Chào Admin, bạn có toàn quyền hệ thống";
+                break;
+            case "student":
+                check = "Chào sinh viên, bạn có thể mượn sách";
+                break;
+            case "guest":
+                check = "Chào khách, bạn chỉ có thể đọc tại chỗ";
+                break;
+            default:
+                check = "Lỗi: Vai trò không hợp lệ!";
+        }
+
+
+        // if ((nickName != "") && (role == "admin" || role == "student") && (balance > 0 && status == "true")) {
+        //     borrowCondition = "ĐƯỢC PHÉP MƯỢN SÁCH";
+        // } else {
+        //     borrowCondition = "YÊU CẦU BỊ TỪ CHỐI";
+        // }
+        let borrowCondition = "YÊU CẦU BỊ TỪ CHỐI";
+        let borrowCheck = true;
+        if (!nickName) {
+            borrowCondition += ", TÊN BỊ RỖNG";
+            borrowCheck = false;
+        }
+        if (role != "admin" && role != "student") {
+            borrowCondition += ", VAI TRÒ CHƯA ĐÚNG";
+            borrowCheck = false;
+        }
+        if (balance < 0 && status != "true") {
+            borrowCondition += ", TÀI KHOẢN = 0 VÀ TRẠNG THÁI = FALSE";
+            borrowCheck = false;
+        }
+        if (borrowCondition) {
+            borrowCondition = "ĐƯỢC PHÉP MƯỢN SÁCH";
+        }
+
+
+        if (overdue <= 0) {
+
+        } else if (overdue <= 5) {
+
+        } else if (overdue <= 10) {
+
+        } else {
+
+        }
+    </script>
+</body>
+
+</html>

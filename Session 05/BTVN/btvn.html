@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        failCount = 0
+        while (failCount < 3) {
+            let passWord = prompt('Yeu cau ban nhap dung mat khau');
+            if (passWord === "admin123") {
+                alert('Dang nhap thanh cong');
+                break;
+            } else {
+                alert('Mat khau khong dung, yeu cau ban nhap lai!');
+                failCount++;
+            }
+        }
+
+        if (failCount === 3) {
+            console.log("Hệ thống bị khóa");
+        } else {
+            let choice;
+            do {
+                choice = +prompt(`Chọn chức năng:
+                1 - Nhập lô sách mới
+                2 - Vẽ sơ đồ kệ sách
+                3 - thoát`);
+                switch (choice) {
+                    case 1:
+                        //Tạo biến để yêu cầu người dùng nhập số sách
+                        let bookQuantity = +prompt("Nhập số lượng sách");
+                        //Tạo biến để lưu tổng giá trị lô sách
+                        let totalPrice = 0;
+                        //Tạo vòng lặp có số lần lặp = số sách
+                        for (let i = 0; i < bookQuantity; i++) {
+                            //Tạo biến để yêu cầu người dùng nhập giá tiền 1 quyển sách
+                            let bookPrice = +prompt(`Nhập giá tiền của quyển thứ ${i}`);
+                            //kiểm tra điều kiện, nếu <= 0 thì bỏ qua
+                            if (bookPrice <= 0) {
+                                continue;
+                            }
+                            //nếu không thì cộng vào tổng
+                            totalPrice = totalPrice + bookPrice;
+                        }
+                        //Kết thúc vòng lặp thì in ra tổng giá trị lô sách
+                        console.log("Tổng giá trị lô sách là:", totalPrice);
+                        break;
+                    case 2:
+                        for (let i = 0; i < 3; i++) {
+                            for (let j = 0; j < 5; j++) {
+                                if (i === 2 && j === 3) {
+                                    console.log("Đang sửa chữa");
+                                    continue;
+                                }
+                                console.log(`Khu ${i} - Kệ ${j}`);
+                            }
+                        }
+                        break;
+                    case 3:
+                        alert("Thoát chương trình");
+                        break;
+                    default:
+                        alert("Lựa chọn không hợp lệ, vui lòng nhập lại")
+                        break;
+                }
+            } while (choice != 3);
+        }
+
+    </script>
+</body>
+
+</html>

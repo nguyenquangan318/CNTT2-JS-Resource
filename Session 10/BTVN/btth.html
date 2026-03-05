@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const squad = [
+            ["Nguyen Van A", 10, "FW"],
+            ["Tran Van B", 5, "MF"],
+            ["Le Van C", 2, "DF"],
+            ["Pham Van D", 12, "FW"],
+            ["Hoang Van E", 0, "GK"],
+            ["Dang Van F", 7, "MF"]
+        ];
+        function viewSquad() {
+            console.log("Danh sach cau thu:");
+            squad.forEach(player => {
+                console.log(`${player[0]} ${player[2]}: ${player[1]} bàn thắng`);
+            })
+        }
+
+        function findPlayer() {
+            let findName = prompt("Nhap ten cau thu muon tim");
+            let findPlayer = squad.filter(player => player[0].toLowerCase().includes(findName.toLowerCase()));
+            if (findPlayer.length !== 0) {
+                console.log("Cau thu tim duoc la:", findPlayer);
+            } else {
+                console.log("Khong tim thay cau thu nao");
+            }
+        }
+
+        function filterByPos() {
+            let position = prompt("Nhap vi tri muon loc");
+            let filteredPlayers = squad.filter(player => player[1] === position);
+            if (filteredPlayers.length === 0) {
+                console.log("Khong co cau thu nao co vi tri da nhap");
+            } else {
+                console.log("Danh sách cầu thủ lọc được là", filteredPlayers);
+            }
+        }
+
+        let choice;
+        while (choice != "0") {
+            choice = prompt(`--- QUẢN LÝ ĐỘI BÓNG ---
+            1. Xem danh sách
+            2. Tìm kiếm (Find)
+            3. Lọc vị trí (Filter)
+            4. Tổng bàn thắng (Reduce)
+            5. Kiểm tra hiệu suất (Some/Every)
+            0. Thoát`);
+            switch (choice) {
+                case "1":
+                    viewSquad();
+                    break;
+                case "2":
+                    findPlayer();
+                    break;
+                case "3":
+                    filterByPos();
+                    break;
+                case "4":
+                    let goals = squad.reduce((acc, value) => {
+                        acc += value[1];
+                        return acc;
+                    }, 0);
+                    console.log(`Tổng số bàn thắng là: ${goals}`);
+                    break;
+                case "5":
+                    let check = squad.some(player => player[1] === 0);
+                    if (check) {
+                        console.log("Có cầu thủ chưa ghi bàn");
+                    }else{
+                        console.log("Tất cả cầu thủ đã ghi bàn");
+                    }
+                    break;
+                case "0":
+                    alert("Thoat chuong trinh.");
+                    break;
+                default:
+                    alert("Lua chon khong hop le.")
+                    break;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

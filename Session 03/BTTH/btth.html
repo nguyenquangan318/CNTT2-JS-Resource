@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        failCount = 0
+        while (failCount < 3) {
+            let passWord = prompt('Yeu cau ban nhap dung mat khau');
+            if (passWord === "admin123") {
+                alert('Dang nhap thanh cong');
+                break;
+            } else {
+                alert('Mat khau khong dung, yeu cau ban nhap lai!');
+                failCount++;
+            }
+        }
+
+        if (failCount === 3) {
+            console.log("Hệ thống bị khóa");
+        } else {
+            let choice;
+            do {
+                choice = +prompt(`Chọn chức năng:
+                1 - Nhập lô sách mới
+                2 - Vẽ sơ đồ kệ sách
+                3 - thoát`);
+                switch (choice) {
+                    case 1:
+
+                        break;
+                    case 2:
+
+                        break;
+                    case 3:
+                        alert("Thoát chương trình");
+                        break;
+                    default:
+                        alert("Lựa chọn không hợp lệ, vui lòng nhập lại")
+                        break;
+                }
+            } while (choice != 3);
+        }
+
+    </script>
+</body>
+
+</html>

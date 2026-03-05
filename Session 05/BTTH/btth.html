@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let choice;
+        let books = [];
+        do {
+            choice = +prompt(`
+            1. Xem danh sách
+            2. Nhập sách mới
+            3. Mượn sách (Xóa)
+            4. Sửa tên sách
+            5. Sắp xếp kệ
+            0. Thoát`);
+            switch (choice) {
+                case 1:
+                    consol.log("Danh sách hiện tại: ");
+                    if (books.length === 0) {
+                        console.log("Danh sách hiện tại rỗng!");
+                    } else {
+                        for (let i = 0; i <= books.length; i++) {
+                            console.log(books[i]);
+                        }
+                    }
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+
+                    break;
+                case 5:
+
+                    break;
+                default:
+                    break;
+            }
+        } while (choice)
+    </script>
+</body>
+
+</html>

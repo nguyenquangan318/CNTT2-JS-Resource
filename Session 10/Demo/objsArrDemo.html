@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let students = [
+            {
+                id: 1,
+                studentName: "An"
+            },
+            {
+                id: 2,
+                studentName: "Hiếu"
+            }
+        ]
+
+        //In ra danh sách tên sinh viên
+        students.forEach(student => {
+            console.log(student.studentName);
+        })
+
+        //Thêm mới sinh viên
+        let studentName = prompt("Nhập tên sinh viên");
+        let newStudent = {
+            id: students[students.length - 1].id + 1,
+            studentName
+        }
+        students.push(newStudent)
+        console.log(students);
+    </script>
+</body>
+
+</html>

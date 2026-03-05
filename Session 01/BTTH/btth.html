@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let nameBook = prompt("Nhập tên sách:").trim().toUpperCase();
+        let nameAuthor = prompt("Nhập tên tcs giả:").toUpperCase();
+        let year = +prompt("Năm xuất bản:");
+        let price = +prompt("Giá tiền sách:");
+        let numberBook = +prompt("Số lượng sách:");
+
+        // nameBook = nameBook.trim();
+        // nameBook = nameBook.toUpperCase();
+        let namePart = nameAuthor.slice(1, 3);
+        let randomPart = Math.floor(Math.random() * 1000 + 1)
+        let bookId = namePart + year + randomPart;
+
+        let bookAge = 2026 - year
+        let totalValue = price * numberBook
+    </script>
+</body>
+
+</html>
