@@ -1,0 +1,13 @@
+.todo-form{
+    display: flex;
+    align-items: start;
+    gap: 5px;
+}
+.err-msg{
+    color: red;
+    font-size: 10px;
+    display: none;
+}
+.err-input{
+    border: 1px solid red;
+}
